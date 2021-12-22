@@ -1,10 +1,9 @@
 #include "controls.hpp"
 
-
 extern GLFWwindow* window;
 
 
-void log(const char* name, glm::vec3 l)
+void logVec3(const char* name, glm::vec3 l)
 {
      printf("%s %f %f %f\n", name, l.x, l.y, l.z);
 }
@@ -106,7 +105,7 @@ void computeMatricesFromInputs()
      {
           mouseBound = 0;
      }
-     if(glfwGetKey(window, GLFW_KEY_BACKSPACE) == GLFW_PRESS)
+     if(glfwGetKey(window, GLFW_KEY_BACKSPACE) == GLFW_PRESS && !mouseBound)
      {
           mouseBound = 1;
           glfwSetCursorPos(window, WINDOW_WIDTH/2, WINDOW_HEIGHT/2);
@@ -116,8 +115,14 @@ void computeMatricesFromInputs()
      //compute FoV
      float FoV = initialFoV;
      #ifdef LOGCONTROLS
-     printf("%s %f %f %f %s %f %f %f %s %f %f %s %f %f \n", "UP: ", up.x, up.y, up.z, "DIRECTION: ", direction.x, direction.y, direction.z, "coss", cos(verticalAngle), cos(horizontalAngle), "Angles", verticalAngle, horizontalAngle);
-  
+     printf(
+          "%s %f %f %f %s %f %f %f %s %f %f %s %s %f %s %f \n",
+          "UP: ", up.x, up.y, up.z,
+          "DIRECTION: ", direction.x, direction.y, direction.z,
+          "cos", cos(verticalAngle), cos(horizontalAngle), 
+          "Angles", "vertical angle", verticalAngle, "horizontal angle", horizontalAngle
+     );
+
      if(up.y < 0)
      {
           printf("Upside Down!\n");
