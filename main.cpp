@@ -12,6 +12,8 @@
 #include "head/controls.hpp"
 #include "head/objloader.hpp"
 
+#define LOG
+
 GLFWwindow* window;
 
 GLuint LoadShaders(const char* vertex_file_path, const char* fragment_file_path);

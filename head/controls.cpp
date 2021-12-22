@@ -1,6 +1,5 @@
 #include "controls.hpp"
-
-#define LOG
+#define LOGCONTROLS
 
 extern GLFWwindow* window;
 
@@ -116,7 +115,7 @@ void computeMatricesFromInputs()
 
      //compute FoV
      float FoV = initialFoV;
-     #ifdef LOG
+     #ifdef LOGCONTROLS
      printf("%s %f %f %f %s %f %f %f %s %f %f %s %f %f \n", "UP: ", up.x, up.y, up.z, "DIRECTION: ", direction.x, direction.y, direction.z, "coss", cos(verticalAngle), cos(horizontalAngle), "Angles", verticalAngle, horizontalAngle);
   
      if(up.y < 0)
