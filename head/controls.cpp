@@ -1,6 +1,7 @@
 #include "controls.hpp"
 
 extern GLFWwindow* window;
+extern FILE* logFile;
 
 
 void logVec3(const char* name, glm::vec3 l)
@@ -116,6 +117,14 @@ void computeMatricesFromInputs()
      float FoV = initialFoV;
      #ifdef LOGCONTROLS
      printf(
+          "%s %f %f %f %s %f %f %f %s %f %f %s %s %f %s %f \n",
+          "UP: ", up.x, up.y, up.z,
+          "DIRECTION: ", direction.x, direction.y, direction.z,
+          "cos", cos(verticalAngle), cos(horizontalAngle), 
+          "Angles", "vertical angle", verticalAngle, "horizontal angle", horizontalAngle
+     );
+     fprintf(
+          logFile,
           "%s %f %f %f %s %f %f %f %s %f %f %s %s %f %s %f \n",
           "UP: ", up.x, up.y, up.z,
           "DIRECTION: ", direction.x, direction.y, direction.z,

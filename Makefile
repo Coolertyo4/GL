@@ -4,7 +4,7 @@ CFLAGS= -Wall -std=c++17
 LIBS= -lglfw3 -lGLEW
 OUTPUT= bin/app
 WINOUT= bin/win64App.exe
-DEPENDENCIES= head/shader.cpp head/texture.cpp head/controls.cpp head/objloader.cpp
+DEPENDENCIES= head/shader.cpp head/texture.cpp head/controls.cpp head/objloader.cpp 
 MLIBFOLDER= -L./libs/macos
 wLIBFOLDER= -L./libs/win32
 
@@ -15,6 +15,10 @@ macos: main.cpp $(DEPENDENCIES)
 
 test: macos
 	./bin/app
+
+cleanup:
+	rm -rf bin/app
+	rm -rf /log/log.LOG
 
 run:
 	./bin/app

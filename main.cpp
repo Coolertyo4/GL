@@ -19,6 +19,7 @@
 
 
 GLFWwindow* window;
+FILE* logFile;
 
 
 GLuint LoadShaders(const char* vertex_file_path, const char* fragment_file_path);
@@ -69,7 +70,8 @@ static const GLfloat g_color_buffer_data[] = {
 
 
 int main()
-{
+{  
+    
     glewExperimental = true;
     if( !glfwInit() )
     {
@@ -102,6 +104,8 @@ int main()
         return -1;
     }
     glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);
+
+    logFile = fopen("log/log.LOG", LOG_FILE_MODE);
 
     glfwPollEvents();
     glfwSetCursorPos(window, WINDOW_WIDTH/2, WINDOW_HEIGHT/2);

@@ -13,8 +13,8 @@
 #define MOUSE_BOUND 0
 
 
-//define the logging controll constants
-#define LOGCONTROLS
-
+//define the logging and LoggingControll constants
+#define LOG_CONTROLS
+#define LOG_FILE_MODE "w"
 
 #endif
