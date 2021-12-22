@@ -1,5 +1,5 @@
 #ifndef _CONSTS
-#define CONSTS
+#define _CONSTS
 
 //Define the WindowConstants
 #define WINDOW_WIDTH 1024
@@ -12,5 +12,8 @@
 #define MOUSE_SPEED 0.005f
 #define MOUSE_BOUND 0
 
+
+//define the logging controll constants
+#define LOGCONTROLS
 
 #endif

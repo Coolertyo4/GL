@@ -1,5 +1,5 @@
 #include "controls.hpp"
-#define LOGCONTROLS
+
 
 extern GLFWwindow* window;
 
@@ -17,7 +17,7 @@ glm::vec3 position(0, 0, 5);
 
 int mouseBound = MOUSE_BOUND;
 
-float horizontalAngle = 0.0f;
+float horizontalAngle = 90.0f;
 
 float verticalAngle = 0.0f;
 
@@ -31,9 +31,7 @@ double lastTime;
 
 void computeMatricesFromInputs()
 {
-    // printf("%f\n", verticalAngle);
-     
-
+    
      double currentTime= glfwGetTime();
      float deltaTime = float(currentTime - lastTime);
      lastTime = currentTime;
@@ -43,11 +41,11 @@ void computeMatricesFromInputs()
      {
 	glfwGetCursorPos(window, &xpos, &ypos);
 	//Compute orientation
-	horizontalAngle += mouseSpeed * float(1024/2 - xpos );
-	verticalAngle   += mouseSpeed * float( 768/2 - ypos );
+	horizontalAngle += mouseSpeed * float(WINDOW_WIDTH/2 - xpos );
+	verticalAngle   += mouseSpeed * float(WINDOW_HEIGHT/2 - ypos );
 
      //reset
-	glfwSetCursorPos(window, 1024/2, 768/2);
+	glfwSetCursorPos(window, WINDOW_WIDTH/2, WINDOW_HEIGHT/2);
 
      //printf("%d\n", horizontalAngle);
      }
@@ -111,7 +109,7 @@ void computeMatricesFromInputs()
      if(glfwGetKey(window, GLFW_KEY_BACKSPACE) == GLFW_PRESS)
      {
           mouseBound = 1;
-          glfwSetCursorPos(window, )
+          glfwSetCursorPos(window, WINDOW_WIDTH/2, WINDOW_HEIGHT/2);
      }
   
 
