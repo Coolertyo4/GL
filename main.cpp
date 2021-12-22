@@ -7,6 +7,8 @@
 #include <glm/gtc/matrix_transform.hpp>
 
 
+#include "head/constants.hpp"
+
 #include "head/shader.hpp"
 #include "head/texture.hpp"
 #include "head/controls.hpp"
@@ -14,7 +16,10 @@
 
 #define LOG
 
+
+
 GLFWwindow* window;
+
 
 GLuint LoadShaders(const char* vertex_file_path, const char* fragment_file_path);
 
@@ -79,7 +84,7 @@ int main()
 
 
     
-    window = glfwCreateWindow(1024, 768, "Test", NULL, NULL);
+    window = glfwCreateWindow(WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_TITLE, NULL, NULL);
 
     if( window == NULL)
     {

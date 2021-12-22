@@ -10,6 +10,8 @@
 #include <GLFW/glfw3.h>
 #include <glm/gtc/matrix_transform.hpp>
 
+#include "constants.hpp"
+
 
 #define BASE_SPEED 3.0f
 #define BOOST_SPEED 9.0f

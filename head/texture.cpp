@@ -1,10 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
-#include <GL/glew.h>
-
-#include <GLFW/glfw3.h>
+#include "texture.hpp"
 
 
 GLuint loadBMP_custom(const char * imagepath){
@@ -158,11 +152,11 @@ GLuint loadDDS(const char * imagepath){
 		return 0; 
 	}
 
-	// Create one OpenGL texture
+	//Create one OpenGL texture
 	GLuint textureID;
 	glGenTextures(1, &textureID);
 
-	// "Bind" the newly created texture : all future texture functions will modify this texture
+	//"Bind" the newly created texture : all future texture functions will modify this texture
 	glBindTexture(GL_TEXTURE_2D, textureID);
 	glPixelStorei(GL_UNPACK_ALIGNMENT,1);	
 	

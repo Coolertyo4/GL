@@ -3,6 +3,7 @@
 
 extern GLFWwindow* window;
 
+
 void log(const char* name, glm::vec3 l)
 {
      printf("%s %f %f %f\n", name, l.x, l.y, l.z);
@@ -110,6 +111,7 @@ void computeMatricesFromInputs()
      if(glfwGetKey(window, GLFW_KEY_BACKSPACE) == GLFW_PRESS)
      {
           mouseBound = 1;
+          glfwSetCursorPos(window, )
      }
   
 
