@@ -285,7 +285,7 @@ int main()
         ////render second////
        
         glm::mat4 ModelMatrix2 = glm::mat4(1.0f);
-        ModelMatrix2 = glm::translate(ModelMatrix2, glm::vec3(3.0f, 0.0f, 0.0f));
+        ModelMatrix2 = glm::translate(ModelMatrix2, glm::vec3(2.0f, 0.0f, 0.0f));
         glm::mat4 MVP2 = ProjectionMatrix * ViewMatrix * ModelMatrix2;
 
 
@@ -345,69 +345,7 @@ int main()
         //draw the triangles
         glDrawElements( GL_TRIANGLES, indices.size(), GL_UNSIGNED_SHORT, (void*)0);
 
-        ////render third////
-       
-        glm::mat4 ModelMatrix3 = glm::mat4(1.0f);
-        ModelMatrix3 = glm::translate(ModelMatrix2, glm::vec3(6.0f, 0.0f, 0.0f));
-        glm::mat4 MVP3 = ProjectionMatrix * ViewMatrix * ModelMatrix2;
-
-
-        glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP3[0][0]);
-
-        glUniformMatrix4fv(ModelMatrixID, 1, GL_FALSE, &ModelMatrix3[0][0]);
-
-        // Bind texture in Texture Unit 0
-		glActiveTexture(GL_TEXTURE0);
-		glBindTexture(GL_TEXTURE_2D, Texture);
-		//Set "myTextureSampler" sampler to use Texture Unit 0
-		glUniform1i(TextureID, 0);
-
-
-        //vertexBuffer
-        glEnableVertexAttribArray(0);
-        glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
-        glVertexAttribPointer(
-           0,                  // attribute 0. No particular reason for 0, but must match the layout in the shader.
-           3,                  // size
-           GL_FLOAT,           // type
-           GL_FALSE,           // normalized?
-           0,                  // stride
-           (void*)0            // array buffer offset
-        );
-       
-
-        //2nd attribute buffer: textures 
-        glEnableVertexAttribArray(1);
-        glBindBuffer(GL_ARRAY_BUFFER, uvbuffer);
-        glVertexAttribPointer(
-        1,                                // attribute. No particular reason for 1, but must match the layout in the shader.
-        2,                                // size only 2
-        GL_FLOAT,                         // type
-        GL_FALSE,                         // normalized?
-        0,                                // stride
-        (void*)0                          // array buffer offset
-        );
-
-
-        //3rd attribute buffer: normals
-        glEnableVertexAttribArray(2);
-        glBindBuffer(GL_ARRAY_BUFFER, normalbuffer);
-        glVertexAttribPointer(
-            2,        //attribute
-            3,        //size
-            GL_FLOAT, //type
-            GL_FALSE, //normalized
-            0,        //stride
-            (void*) 0 //offset
-        );
-
-        //Indexbuffer
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, elementbuffer);
-
-
-        //draw the triangles
-        glDrawElements( GL_TRIANGLES, indices.size(), GL_UNSIGNED_SHORT, (void*)0);
-
+        
         //diable the buffers
         glDisableVertexAttribArray(0);
         glDisableVertexAttribArray(1);
