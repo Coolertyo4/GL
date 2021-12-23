@@ -16,5 +16,7 @@
 //define the logging and LoggingControll constants
 #define LOG_CONTROLS
 #define LOG_FILE_MODE "w"
+#define logFps(x) printf("%d fps\n", x)
+#define logMspf(x) printf("%f ms/frame\n", 1000.0/double(x))
 
 #endif
